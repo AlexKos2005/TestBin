@@ -1,0 +1,289 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ModbusPollWebService</name>
+    </assembly>
+    <members>
+        <member name="M:ModbusPollWebService.Controllers.ModbusSlavesController.GetAll">
+            <summary>
+            Получить все слейвы
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ModbusPollWebService.Controllers.ModbusSlavesController.GetSlave(System.String)">
+            <summary>
+            Получить слейв
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ModbusPollWebService.Controllers.ModbusSlavesController.Create(ModbusPollWebService.Dto.ModbusSlaveConfigDto)">
+            <summary>
+            Создать слейв устройство для опроса
+            </summary>
+            <param name="config"></param>
+            <response code="409">Слейв с таким ID уже существует</response>
+            <returns></returns>
+        </member>
+        <member name="M:ModbusPollWebService.Controllers.ModbusSlavesController.Delete(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Удалить слейв
+            </summary>
+            <param name="id"></param>
+            <param name="isDeleteTasks">Удалить связанные задачи</param>
+            <param name="isDeleteTag">Удалить связанные теги</param>
+            <returns></returns>
+        </member>
+        <member name="M:ModbusPollWebService.Controllers.ModbusSlavesController.Update(System.String,ModbusPollWebService.Dto.ModbusSlaveConfigDto)">
+            <summary>
+            Обновить слейв устройство
+            </summary>
+            <response code="404">Слейв с таким ID не существует</response>
+            <param name="id"></param>
+            <param name="slave"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ModbusPollWebService.Controllers.ReadTasksController.GetAll">
+            <summary>
+            Получить все
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ModbusPollWebService.Controllers.ReadTasksController.GetForSlave(System.String)">
+            <summary>
+            Получить все задачи для слейва
+            </summary>
+            <param name="slaveId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ModbusPollWebService.Controllers.ReadTasksController.Get(System.Int32)">
+            <summary>
+            Получить задачу
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ModbusPollWebService.Controllers.ReadTasksController.Add(ModbusPollWebService.Dto.ReadTaskEntityDto)">
+            <summary>
+            Добавить задачу циклического чтения регистров указанного слейва
+            </summary>
+            <response code="409">Слейв с указанным ID не найден.</response>
+            <param name="readTaskDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ModbusPollWebService.Controllers.ReadTasksController.Update(System.Int32,ModbusPollWebService.Dto.ReadTaskEntityDto)">
+            <summary>
+            Обновить задачу циклического чтения регистров
+            </summary>
+            <param name="id"></param>
+            <param name="readTaskDto"></param>
+            <response code="404">Запись с указанным ID не найдена</response>
+            <response code="409">Слейв с указанным ID не найден. <see cref="T:ModbusPollWebService.Controllers.ModbusSlavesController"/></response>
+            <returns></returns>
+        </member>
+        <member name="M:ModbusPollWebService.Controllers.ReadTasksController.Delete(System.Int32,System.Boolean)">
+            <summary>
+            Удалить задачу
+            </summary>
+            <param name="taskId"></param>
+            <param name="isDeleteTags">Удалить связанные теги</param>
+            <returns></returns>
+        </member>
+        <member name="M:ModbusPollWebService.Controllers.SlavesPollController.GetStatus(System.String)">
+            <summary>
+            Получить состояние опроса слейва
+            </summary>
+            <param name="slaveId"></param>
+            <response code="404">Слейв с таким ID отсутствует</response>
+            <returns></returns>
+        </member>
+        <member name="M:ModbusPollWebService.Controllers.SlavesPollController.GetStatusAll">
+            <summary>
+            Получить состояние опроса слейва
+            </summary>
+            <response code="204">Опрос слейвов не производится</response>
+            <returns></returns>
+        </member>
+        <member name="M:ModbusPollWebService.Controllers.SlavesPollController.Start(System.String)">
+            <summary>
+            Запустить опрос
+            </summary>
+            <param name="slaveId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ModbusPollWebService.Controllers.SlavesPollController.StartAll">
+            <summary>
+            Запустить опрос всех включенных слейвов (slave.IsEnable == true). Слейвы находящиеся в работе не будут стартовать повторно
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ModbusPollWebService.Controllers.SlavesPollController.Stop(System.String)">
+            <summary>
+            Остановить опрос
+            </summary>
+            <param name="slaveId"></param>
+            <response code="404">Слейв с таким ID отсутствует</response>
+            <returns></returns>
+        </member>
+        <member name="M:ModbusPollWebService.Controllers.SlavesPollController.StopAll">
+            <summary>
+            Остановить опрос всех находящихся в работе слейвов
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ModbusPollWebService.Controllers.TagsController.GetAll">
+            <summary>
+            Получить все теги
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ModbusPollWebService.Controllers.TagsController.Get(System.Int32)">
+            <summary>
+            Получить тег по ID
+            </summary>
+            <param name="tagId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ModbusPollWebService.Controllers.TagsController.GetForTask(System.Int32)">
+            <summary>
+            Получить все теги указанной задачи
+            </summary>
+            <param name="taskId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ModbusPollWebService.Controllers.TagsController.GetForSlave(System.String)">
+            <summary>
+            Получить все теги указанного слейва
+            </summary>
+            <param name="slaveId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ModbusPollWebService.Controllers.TagsController.Add(ModbusPollWebService.Dto.TagDto)">
+            <summary>
+            Добавить тег для указанной задачи
+            </summary>
+            <param name="tag"></param>
+            <response code="409">Задача с указанным ID не найдена.</response>
+            <returns></returns>
+        </member>
+        <member name="M:ModbusPollWebService.Controllers.TagsController.Update(System.Int32,ModbusPollWebService.Dto.TagDto)">
+            <summary>
+            Обновить тег
+            </summary>
+            <param name="id"></param>
+            <param name="tagDto"></param>
+            <response code="404">Тег с указанным ID не найден</response>
+            <response code="409">Задача с указанным ID не найдена. <see cref="T:ModbusPollWebService.Controllers.ModbusSlavesController"/></response>
+            <returns></returns>
+        </member>
+        <member name="M:ModbusPollWebService.Controllers.TagsController.Delete(System.Int32)">
+            <summary>
+            Удалить тег
+            </summary>
+            <param name="tagId"></param>
+            <returns></returns>
+        </member>
+        <member name="P:ModbusPollWebService.Dto.ModbusSlaveConfigDto.Id">
+            <summary>
+            Уникальный идентификатор слейва (Имя). Не используется в опросе
+            </summary>
+        </member>
+        <member name="P:ModbusPollWebService.Dto.ModbusSlaveConfigDto.ConnectionString">
+            <summary>
+            Modbus TCP - 192.168.1.1:502 [tcpAddr]:[port]. Порт по умолчанию - 502
+            </summary>
+        </member>
+        <member name="P:ModbusPollWebService.Dto.ModbusSlaveConfigDto.TimeoutMillis">
+            <summary>
+            Таймаут ответа [мс]
+            </summary>
+        </member>
+        <member name="P:ModbusPollWebService.Dto.ModbusSlaveConfigDto.PauseBetweenRequestsMillis">
+            <summary>
+            Пауза между задачами опроса [мс]
+            </summary>
+        </member>
+        <member name="P:ModbusPollWebService.Dto.ModbusSlaveConfigDto.PollPauseMillis">
+            <summary>
+            Пауза между циклами опроса [мс]
+            </summary>
+        </member>
+        <member name="P:ModbusPollWebService.Dto.SlavePollStatusDto.ConnectionString">
+            <summary>
+            Modbus TCP - 192.168.1.1:502 [tcpAddr]:[port]
+            </summary>
+        </member>
+        <member name="P:ModbusPollWebService.Dto.SlavePollStatusDto.TimeoutMillis">
+            <summary>
+            Таймаут ответа [мс]
+            </summary>
+        </member>
+        <member name="P:ModbusPollWebService.Dto.SlavePollStatusDto.PauseBetweenRequestsMillis">
+            <summary>
+            Пауза между задачами опроса [мс]
+            </summary>
+        </member>
+        <member name="P:ModbusPollWebService.Dto.SlavePollStatusDto.PollPauseMillis">
+            <summary>
+            Пауза между циклами опроса [мс]
+            </summary>
+        </member>
+        <member name="P:ModbusPollWebService.Dto.SlavePollStatusDto.ConnectionState">
+            <summary>
+            Состояние соединения
+            </summary>
+        </member>
+        <member name="P:ModbusPollWebService.Dto.TagDto.Name">
+            <summary>
+            Имя тега
+            </summary>
+        </member>
+        <member name="P:ModbusPollWebService.Dto.TagDto.EngUnits">
+            <summary>
+            Инженерные единицы
+            </summary>
+        </member>
+        <member name="P:ModbusPollWebService.Dto.TagDto.TaskId">
+            <summary>
+            Задача в которой производится опрос тега
+            </summary>
+        </member>
+        <member name="P:ModbusPollWebService.Dto.TagDto.Address">
+            <summary>
+            <para>short     - S0.0  (S[адрес регистра].[положение точки])</para>
+            <para>ushort    - W0.0  (W[адрес регистра].[положение точки])</para>
+            <para>int       - I0.0  (I[адрес регистра].[положение точки])</para>
+            <para>uint      - U0.0  (U[адрес регистра].[положение точки])</para>
+            <para>float     - F0    (F[адрес регистра])</para>
+            <para>bool      - X0.0  (X[адрес регистра].[номер бита])</para>
+            </summary>
+        </member>
+        <member name="T:ModbusPollWebService.Services.NModbusConnectionFactory">
+            <summary>
+            Фабрика транспортных соединений.
+            Для слейвов с одинаковым connectionString выдает одно соединение на всех (общий словарь).
+            При уничтожении соединения (Dispose) оно удаляется из общего словаря/>
+            </summary>
+        </member>
+        <member name="M:ModbusPollWebService.Services.NModbusConnectionFactory.GetConnection(System.String,System.Int32)">
+            <summary>
+            Возвращает соединение, если отсутсвует или уничтожено - создает новое.
+            </summary>
+            <param name="connectionString">
+            Строка подключения 
+            <para> Modbus TCP - 192.168.1.1:502 [tcpAddr]:[port]</para></param>
+            <param name="timeout">Таймаут чтения/записи</param>
+            <returns></returns>
+        </member>
+        <member name="T:ModbusPollWebService.Services.ModbusSlavesService">
+            <summary>
+            Сервис для управления опросами слейвов <see cref="T:ModbusPollService.IModbusSlavePollService"/>
+            </summary>
+        </member>
+        <member name="T:ModbusPollWebService.SwaggerFilters.SwaggerAddEnumDescriptions">
+            <summary>
+            https://stackoverflow.com/questions/36452468/swagger-ui-web-api-documentation-present-enums-as-strings
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LiteDbRepositories</name>
+    </assembly>
+    <members>
+        <member name="P:LiteDbRepositories.Entities.TagEntity.Name">
+            <summary>
+            Имя тега
+            </summary>
+        </member>
+        <member name="P:LiteDbRepositories.Entities.TagEntity.EngUnits">
+            <summary>
+            Инженерные единицы
+            </summary>
+        </member>
+        <member name="P:LiteDbRepositories.Entities.TagEntity.TaskId">
+            <summary>
+            Задача в которой производится опрос тега
+            </summary>
+        </member>
+        <member name="P:LiteDbRepositories.Entities.TagEntity.Address">
+            <summary>
+            <para>short     - S0.0  (S[адрес регистра].[положение точки])</para>
+            <para>ushort    - W0.0  (W[адрес регистра].[положение точки])</para>
+            <para>int       - I0.0  (I[адрес регистра].[положение точки])</para>
+            <para>uint      - U0.0  (U[адрес регистра].[положение точки])</para>
+            <para>float     - F0    (F[адрес регистра])</para>
+            <para>bool      - X0.0  (X[адрес регистра].[номер бита])</para>
+            </summary>
+        </member>
+        <member name="P:LiteDbRepositories.Entities.TagValueEntity.Name">
+            <summary>
+            Название тега
+            </summary>
+        </member>
+        <member name="P:LiteDbRepositories.Entities.TagValueEntity.SlaveId">
+            <summary>
+            Задача в которой производится опрос тега
+            </summary>
+        </member>
+        <member name="P:LiteDbRepositories.Entities.TagValueEntity.Value">
+            <summary>
+            Значение в регистре, приведенное к double
+            </summary>
+        </member>
+        <member name="P:LiteDbRepositories.Entities.TagValueEntity.Type">
+            <summary>
+            Тип значения в регистре
+            </summary>
+        </member>
+        <member name="P:LiteDbRepositories.Entities.TagValueEntity.EngUnits">
+            <summary>
+            Инженерные еденицы измерения
+            </summary>
+        </member>
+        <member name="P:LiteDbRepositories.Entities.TagValueEntity.TimestampTicks">
+            <summary>
+            Дата-время в тиках
+            </summary>
+        </member>
+        <member name="P:LiteDbRepositories.Entities.TagValueEntity.Utc">
+            <summary>
+            UTC
+            </summary>
+        </member>
+        <member name="M:LiteDbRepositories.ISettingsStorage.Save(Common.Configuration.ModbusSlaveConfig)">
+            <summary>
+            
+            </summary>
+            <param name="config"></param>
+            <returns>false - слейв с таким ID уже существует</returns>
+        </member>
+        <member name="M:LiteDbRepositories.ISettingsStorage.Save(LiteDbRepositories.Entities.ReadTaskEntity)">
+            <summary>
+            
+            </summary>
+            <param name="taskEntity"></param>
+            <returns>false - слейв с указанным ID  не существует</returns>
+        </member>
+        <member name="M:LiteDbRepositories.ISettingsStorage.DeleteTask(System.Int32,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="taskId"></param>
+            <param name="isDeleteTag"></param>
+        </member>
+        <member name="M:LiteDbRepositories.ISettingsStorage.Update(LiteDbRepositories.Entities.ReadTaskEntity)">
+            <summary>
+            
+            </summary>
+            <param name="taskEntity"></param>
+            <returns>false - слейв с указанным ID  не существует, null - задача с указанным Id не найдена</returns>
+        </member>
+        <member name="M:LiteDbRepositories.ISettingsStorage.GetTagsForSlave(System.String)">
+            <summary>
+            Получить тэги указанного слейва
+            </summary>
+            <param name="slaveId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LiteDbRepositories.ISettingsStorage.Update(LiteDbRepositories.Entities.TagEntity)">
+            <summary>
+            Обновить тэг
+            </summary>
+            <param name="tagEntity"></param>
+            <returns>false - задача с указанным ID  не существует, null - тэг с указанным Id не найден</returns>
+        </member>
+        <member name="M:LiteDbRepositories.LiteDbSettingsStorage.Save(Common.Configuration.ModbusSlaveConfig)">
+            <summary>
+            
+            </summary>
+            <param name="config"></param>
+            <returns>false - слейв с таким ID уже существует</returns>
+        </member>
+        <member name="M:LiteDbRepositories.LiteDbSettingsStorage.Save(LiteDbRepositories.Entities.ReadTaskEntity)">
+            <summary>
+            
+            </summary>
+            <param name="taskEntity"></param>
+            <returns>false - слейв с указанным ID  не существует</returns>
+        </member>
+        <member name="M:LiteDbRepositories.LiteDbSettingsStorage.Update(LiteDbRepositories.Entities.ReadTaskEntity)">
+            <summary>
+            
+            </summary>
+            <param name="taskEntity"></param>
+            <returns>false - слейв с указанным ID  не существует, null - задача с указанным Id не найдена</returns>
+        </member>
+        <member name="M:LiteDbRepositories.LiteDbSettingsStorage.Update(LiteDbRepositories.Entities.TagEntity)">
+            <summary>
+            Обновить тег
+            </summary>
+            <param name="tagEntity"></param>
+            <returns>false - задача с указанным ID  не существует, null - тэг с указанным Id не найден</returns>
+        </member>
+    </members>
+</doc>

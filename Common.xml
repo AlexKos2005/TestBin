@@ -1,0 +1,211 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Common</name>
+    </assembly>
+    <members>
+        <member name="P:Common.Configuration.IModbusSlaveConfig.ConnectionString">
+            <summary>
+            Modbus TCP - 192.168.1.1:502 [tcpAddr]:[port]
+            </summary>
+        </member>
+        <member name="P:Common.Configuration.IModbusSlaveConfig.TimeoutMillis">
+            <summary>
+            Таймаут ответа [мс]
+            </summary>
+        </member>
+        <member name="P:Common.Configuration.IModbusSlaveConfig.PauseBetweenRequestsMillis">
+            <summary>
+            Пауза между задачами опроса [мс]
+            </summary>
+        </member>
+        <member name="P:Common.Configuration.IModbusSlaveConfig.PollPauseMillis">
+            <summary>
+            Пауза между циклами опроса [мс]
+            </summary>
+        </member>
+        <member name="P:Common.Configuration.ModbusSlaveConfig.ConnectionString">
+            <summary>
+            Modbus TCP - 192.168.1.1:502 [tcpAddr]:[port]
+            </summary>
+        </member>
+        <member name="P:Common.Configuration.ModbusSlaveConfig.TimeoutMillis">
+            <summary>
+            Таймаут ответа [мс]
+            </summary>
+        </member>
+        <member name="P:Common.Configuration.ModbusSlaveConfig.PauseBetweenRequestsMillis">
+            <summary>
+            Пауза между задачами опроса [мс]
+            </summary>
+        </member>
+        <member name="P:Common.Configuration.ModbusSlaveConfig.PollPauseMillis">
+            <summary>
+            Пауза между циклами опроса [мс]
+            </summary>
+        </member>
+        <member name="P:Common.Configuration.Tags.Base.TagConfigBase.TagName">
+            <summary>
+            Название тега
+            </summary>
+        </member>
+        <member name="P:Common.Configuration.Tags.Base.TagConfigBase.ValueRegisterAddress">
+            <summary>
+            Адрес регистра
+            </summary>
+        </member>
+        <member name="P:Common.Configuration.Tags.Base.TagConfigBase.Type">
+            <summary>
+            Тип значения в регистре
+            </summary>
+        </member>
+        <member name="P:Common.Configuration.Tags.Base.TagConfigBase.Length">
+            <summary>
+            Кол-во регистров? 1 - 1 регистр(2 байта), 2 - регистра
+            </summary>
+        </member>
+        <member name="P:Common.Configuration.Tags.Base.TagConfigBase.GuranteedPollCycleMillis">
+            <summary>
+            Гарантированный цикл опроса
+            </summary>
+        </member>
+        <member name="P:Common.Configuration.Tags.Base.TagConfigBase.EngUnits">
+            <summary>
+            Инженерные еденицы измерения
+            </summary>
+        </member>
+        <member name="P:Common.Configuration.Tags.Base.TagConfigBase.CompressionAlgorithm">
+            <summary>
+            Алгоритм сжатия данных 
+            </summary>
+        </member>
+        <member name="P:Common.Configuration.Tags.Base.TagConfigBase.CompressionConfig">
+            <summary>
+            Строка конфигурации сжатия данных
+            <para> SwingingDoorCompression Пример: cd=10.0;mcp=6</para>
+            <para> где cd: Отклонение сжатия(CompressionDeviation), mcp: Максимальное количество точек в последовательности(MaxPointsInSequence)</para>
+            <para> DuplicateValueCompression Пример: tl=0.001</para>
+            <para> где tl: Допустипая погрешность измерений(Tollerance)</para>
+            </summary>
+        </member>
+        <member name="M:Common.Configuration.Tags.Base.TagConfigBase.#ctor(Common.Configuration.Enums.TagDataType,System.String,System.UInt16,System.Int32,System.String,System.UInt16,Common.Configuration.Enums.CompressAlgorithm,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="dataType">Тип из перечисления TagDataType</param>
+            <param name="tagName">Имя тега</param>
+            <param name="valueRegisterAddress">Адрес регистра</param>
+            <param name="guranteedPollCycleMillis">Цикл опроса</param>
+            <param name="engUnits">Единицы измерения</param>
+            <param name="length">Кол-во регистров</param>
+            <param name="compressAlgorithm">Алгоритм сжатия данных из перечисления CompressAlgorithm</param>
+            <param name="filterConfig">
+            Строка конфигурации сжатия данных
+            <para> SwingingDoorCompression Пример: cd=10.0;mcp=6</para>
+            <para> где cd: Отклонение сжатия(CompressionDeviation), mcp: Максимальное количество точек в последовательности(MaxPointsInSequence)</para>
+            <para> DuplicateValueCompression Пример: tl=0.001</para>
+            <para> где tl: Допустипая погрешность измерений(Tollerance)</para>
+            </param>
+        </member>
+        <member name="M:Common.Configuration.Tags.TagConfigInt.#ctor(System.String,System.UInt16,System.Int32,System.String,System.UInt16,System.Byte,Common.Configuration.Enums.CompressAlgorithm,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="tagName"></param>
+            <param name="valueRegisterAddress"></param>
+            <param name="guranteedPollCycleMillis"></param>
+            <param name="engUnits"></param>
+            <param name="length"></param>
+            <param name="decimalPointPosition"></param>
+            <param name="compressAlgorithm"></param>
+            <param name="config"></param>
+        </member>
+        <member name="F:Common.Configuration.Enums.CompressAlgorithm.None">
+            <summary>
+            Без сжатия (все данные)
+            </summary>
+        </member>
+        <member name="F:Common.Configuration.Enums.CompressAlgorithm.SwingingDoors">
+            <summary>
+            Алгоритм Swinging Doors
+            </summary>
+        </member>
+        <member name="F:Common.Configuration.Enums.CompressAlgorithm.DuplicateValue">
+            <summary>
+            Алгоритм Duplicate Value
+            </summary>
+        </member>
+        <member name="F:Common.Extentions.BytesOrder.LittleEndian">
+            <summary>
+            Little endian
+            </summary>
+        </member>
+        <member name="F:Common.Extentions.BytesOrder.LittleEndianSwap">
+            <summary>
+            Little endian byte swap
+            </summary>
+        </member>
+        <member name="F:Common.Extentions.BytesOrder.BigEndianSwap">
+            <summary>
+            Big endian byte swap
+            </summary>
+        </member>
+        <member name="F:Common.Extentions.BytesOrder.BigEndian">
+            <summary>
+            Big endian
+            </summary>
+        </member>
+        <member name="M:Common.Extentions.ConvertExtentions.AddSign(System.Byte[])">
+             <summary>
+            Int по МЭК -32768 до 32767 - 2 байта начинается от [255][255]; Системный Int [255][255][255][255]
+            Доставляем последние заполненные два байта, если из пришедших байтов второй имеет значение более 127 и до 255
+             </summary>
+             <param name="self"></param>
+             <returns></returns>
+        </member>
+        <member name="M:Common.Extentions.ConvertExtentions.ToUint16(System.Boolean[])">
+            <summary>
+            Массив битов => uint16
+            </summary>
+            <param name="self"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Common.Extentions.ConvertExtentions.ToBoolArray(System.UInt16)">
+            <summary>
+            Регистр => массив битов
+            </summary>
+            <param name="self"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Common.Tags.Base.TagBase.Name">
+            <summary>
+            Название тега
+            </summary>
+        </member>
+        <member name="P:Common.Tags.Base.TagBase.Type">
+            <summary>
+            Тип значения в регистре
+            </summary>
+        </member>
+        <member name="P:Common.Tags.Base.TagBase.EngUnits">
+            <summary>
+            Инженерные еденицы измерения
+            </summary>
+        </member>
+        <member name="P:Common.Tags.Base.TagBase.TimestampTicks">
+            <summary>
+            Дата-время в тиках
+            </summary>
+        </member>
+        <member name="P:Common.Tags.Base.TagBase.Utc">
+            <summary>
+            UTC
+            </summary>
+        </member>
+        <member name="P:Common.Tags.Tag.Value">
+            <summary>
+            Значение в регистре, приведенное к double
+            </summary>
+        </member>
+    </members>
+</doc>
